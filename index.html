@@ -10,7 +10,7 @@
     *{box-sizing:border-box}
     body{margin:0;min-height:100vh;font-family:Georgia,'Times New Roman',serif;color:#4b2634;background:radial-gradient(ellipse at 15% 15%,#f9dfe3 0,transparent 36%),radial-gradient(ellipse at 90% 85%,#f3d9c5 0,transparent 35%),linear-gradient(135deg,#fff9f5,#f8e8e7);overflow-x:hidden}
     .wrap{min-height:100vh;display:grid;place-items:center;padding:34px 18px;position:relative}
-    .card{width:min(760px,100%);position:relative;text-align:center;padding:clamp(30px,7vw,68px) clamp(22px,7vw,72px);background:#fffdfbdf;border:1px solid #d8b58b;border-radius:28px;box-shadow:0 24px 80px #6e34401c;backdrop-filter:blur(8px);overflow:hidden}
+    .card{width:min(760px,100%);position:relative;text-align:center;padding:clamp(30px,7vw,68px) clamp(22px,7vw,72px);background:#fffdfbdf;border:1px solid #d8b58b;border-radius:28px;box-shadow:0 24px 80px #6e34401c;backdrop-filter:blur(8px);overflow:hidden}\n    .image-card{padding:0;background:transparent;border:0;box-shadow:0 24px 80px #6e344033}\n    .anniversary-image{display:block;width:100%;height:auto;border-radius:20px}
     .card:before,.card:after{content:"✦";position:absolute;color:#d5ae76;font-size:25px}.card:before{top:20px;left:24px}.card:after{right:24px;bottom:20px}
     .eyebrow{font:600 11px/1.4 Arial,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:#a45a70}
     h1{font-size:clamp(42px,8vw,76px);line-height:1.02;font-weight:400;color:var(--wine);margin:22px 0 14px}
@@ -32,7 +32,7 @@
     button{min-height:48px;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
     @media(max-width:600px){
       .wrap{min-height:100vh;min-height:100svh;padding:max(18px,env(safe-area-inset-top)) max(14px,env(safe-area-inset-right)) max(18px,env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left))}
-      .card{width:100%;padding:42px 22px 34px;border-radius:22px}
+      .card{width:100%;padding:42px 22px 34px;border-radius:22px}\n      .image-card{padding:0;border-radius:16px}\n      .anniversary-image{border-radius:16px}
       .card:before{top:14px;left:16px;font-size:20px}
       .card:after{right:16px;bottom:14px;font-size:20px}
       .eyebrow{font-size:10px;letter-spacing:.2em}
@@ -47,14 +47,14 @@
       .footer{font-size:10px;line-height:1.6;letter-spacing:.08em;margin-top:28px}
     }
     @media(max-width:360px){
-      .card{padding-left:17px;padding-right:17px}
+      .card{padding-left:17px;padding-right:17px}\n      .image-card{padding:0}
       .eyebrow{letter-spacing:.14em}
       h1{font-size:36px}
     }
     @media(hover:none){button:hover{transform:none;background:var(--wine)}}
     @media(max-height:650px) and (orientation:landscape){
       .wrap{place-items:start center;padding-top:16px;padding-bottom:16px}
-      .card{padding-top:30px;padding-bottom:28px}
+      .card{padding-top:30px;padding-bottom:28px}\n      .image-card{padding:0}
       h1{font-size:42px;margin:12px 0}
       .divider{margin:14px auto}
     }
@@ -63,17 +63,15 @@
 </head>
 <body>
   <main class="wrap">
-    <section class="card">
-      <div class="eyebrow">Sirsnīgi sveicieni</div>
-      <h1>Daudz laimes<br><span class="amp">kāzu</span> jubilejā!</h1>
-      <div class="divider">❧ ♥ ❧</div>
-      <p class="intro">Santa un Aivar!</p>
-      <p class="message">Lai jūsu kopīgais ceļš arī turpmāk ir piepildīts ar mīlestību, sapratni, smiekliem un skaistiem mirkļiem. Lai ik diena dāvā jaunu iemeslu būt pateicīgiem vienam par otru, bet sirdīs vienmēr mājo siltums un prieks.</p>
-      <p class="message">Lai jums vēl daudz laimīgu gadu kopā, stipra veselība, prieks un neskaitāmi skaistu atmiņu!</p>
-      <div class="signature">Lai mīlestība un saticība vienmēr ir jums līdzās! ❤️</div>
-      <button id="surpriseBtn" type="button">Atvērt mazu pārsteigumu ✨</button>
-      <div class="surprise" id="surprise">Īsta mīlestība nav tikai par kopā pavadītajiem gadiem — tā ir par visiem mazajiem mirkļiem, kas šos gadus padara īpašus. Lai jums tādu vēl ir ļoti, ļoti daudz! ❤️</div>
-      <div class="footer">Ar mīlestību • Šī diena ir par jums</div>
+    <section class="card image-card" aria-label="Kāzu jubilejas apsveikums">
+      <img
+        class="anniversary-image"
+        src="12%20gadi%20m%C4%ABlest%C4%ABbas%20saulriet%C4%81.png"
+        alt="Apsveikums Santa un Aivaram 12. kāzu jubilejā — pāris pludmalē saulrietā, ar ziediem un laulības gredzeniem."
+        width="1024"
+        height="1536"
+        fetchpriority="high"
+      >
     </section>
   </main>
   <script>
