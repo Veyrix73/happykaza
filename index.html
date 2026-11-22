@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#7b2946">
+  <title>Daudz laimes kāzu jubilejā!</title>
+  <style>
+    :root{color-scheme:light;--wine:#70283f;--rose:#bd657c;--cream:#fff8f3;--gold:#d6ad72}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;font-family:Georgia,'Times New Roman',serif;color:#4b2634;background:radial-gradient(ellipse at 15% 15%,#f9dfe3 0,transparent 36%),radial-gradient(ellipse at 90% 85%,#f3d9c5 0,transparent 35%),linear-gradient(135deg,#fff9f5,#f8e8e7);overflow-x:hidden}
+    .wrap{min-height:100vh;display:grid;place-items:center;padding:34px 18px;position:relative}
+    .card{width:min(760px,100%);position:relative;text-align:center;padding:clamp(30px,7vw,68px) clamp(22px,7vw,72px);background:#fffdfbdf;border:1px solid #d8b58b;border-radius:28px;box-shadow:0 24px 80px #6e34401c;backdrop-filter:blur(8px);overflow:hidden}
+    .card:before,.card:after{content:"✦";position:absolute;color:#d5ae76;font-size:25px}.card:before{top:20px;left:24px}.card:after{right:24px;bottom:20px}
+    .eyebrow{font:600 11px/1.4 Arial,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:#a45a70}
+    h1{font-size:clamp(42px,8vw,76px);line-height:1.02;font-weight:400;color:var(--wine);margin:22px 0 14px}
+    .amp{font-style:italic;color:#bd7587}
+    .divider{display:flex;align-items:center;gap:14px;justify-content:center;color:var(--gold);margin:26px auto;font-size:19px}.divider:before,.divider:after{content:"";height:1px;width:76px;background:linear-gradient(90deg,transparent,var(--gold))}
+    .intro{font-size:clamp(17px,2.5vw,21px);line-height:1.75;max-width:560px;margin:0 auto;color:#694653}
+    .message{font-size:17px;line-height:1.9;max-width:570px;margin:22px auto 0;color:#755765}
+    .signature{font-style:italic;font-size:20px;color:#a45a70;margin-top:28px}
+    button{margin-top:30px;border:0;border-radius:999px;padding:15px 25px;background:var(--wine);color:white;font:600 13px Arial,sans-serif;letter-spacing:.06em;cursor:pointer;box-shadow:0 8px 22px #70283f30;transition:transform .2s,background .2s}
+    button:hover{transform:translateY(-2px);background:#8b3855}
+    .surprise{display:none;margin:24px auto 0;padding:20px;border-radius:18px;background:#fbefed;color:#85475d;line-height:1.7;animation:rise .5s ease}
+    .surprise.show{display:block}
+    .footer{margin-top:36px;font:11px Arial,sans-serif;letter-spacing:.15em;color:#b58b91;text-transform:uppercase}
+    .petal{position:fixed;top:-30px;pointer-events:none;z-index:2;animation:fall linear forwards;opacity:.75}
+    @keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(540deg);opacity:0}}
+    @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:480px){.card{border-radius:22px}.message{font-size:16px}.footer{letter-spacing:.1em}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <div class="eyebrow">Ar mīlestību un sirsnīgiem sveicieniem</div>
+      <h1>Daudz laimes<br><span class="amp">kāzu</span> jubilejā!</h1>
+      <div class="divider">❧ ♥ ❧</div>
+      <p class="intro">Mīļie tante un onkuli!</p>
+      <p class="message">Lai jūsu kopīgais ceļš arī turpmāk ir piepildīts ar mīlestību, sapratni, smiekliem un skaistiem mirkļiem. Lai ik diena dāvā jaunu iemeslu būt pateicīgiem vienam par otru, bet sirdīs vienmēr mājo siltums un prieks.</p>
+      <p class="message">Novēlu jums vēl daudz laimīgu gadu kopā, veselību, spēku un neskaitāmi daudz skaistu atmiņu!</p>
+      <div class="signature">Ar vislabākajiem vēlējumiem ❤️</div>
+      <button id="surpriseBtn" type="button">Atvērt mazu pārsteigumu ✨</button>
+      <div class="surprise" id="surprise">Īsta mīlestība nav tikai par kopā pavadītajiem gadiem — tā ir par visiem mazajiem mirkļiem, kas šos gadus padara īpašus. Lai jums tādu vēl ir ļoti, ļoti daudz! ❤️</div>
+      <div class="footer">Ar mīlestību • Šī diena ir par jums</div>
+    </section>
+  </main>
+  <script>
+    const btn=document.getElementById('surpriseBtn');
+    const surprise=document.getElementById('surprise');
+    btn.addEventListener('click',()=>{
+      surprise.classList.toggle('show');
+      btn.textContent=surprise.classList.contains('show')?'Aizvērt pārsteigumu':'Atvērt mazu pārsteigumu ✨';
+    });
+    const symbols=['♡','✿','♥'];
+    function petal(){
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      const el=document.createElement('span');
+      el.className='petal';el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+      el.style.left=Math.random()*100+'vw';el.style.fontSize=(13+Math.random()*17)+'px';
+      el.style.color=['#b96a80','#d2a56e','#d99aa6'][Math.floor(Math.random()*3)];
+      el.style.setProperty('--drift',(Math.random()*160-80)+'px');
+      el.style.animationDuration=(7+Math.random()*7)+'s';
+      document.body.appendChild(el);setTimeout(()=>el.remove(),14500);
+    }
+    setInterval(petal,850);
+  </script>
+</body>
+</html>
